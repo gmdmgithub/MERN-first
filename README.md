@@ -1,4 +1,5 @@
 # First MERN project
+Implementation simple project with Mongodb, express, react and node.js
 
 ## Quick Start
 1. Instal express
@@ -9,6 +10,10 @@ $ npm i express
 2. Add dotenv (reading configuration from .env file) and nodemon
 ``` bash
 $ npm i dotenv nodemon
+```
+3. Modify package.json add scripts 
+ ```
+ "start": "nodemon index.js"
 ```
 
 ## Version
