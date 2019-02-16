@@ -6,11 +6,12 @@ Implementation simple project with Mongodb, express, react and node.js
 ``` bash
 $ npm init
 $ npm i express 
+$ npm i body-parser
 ```
 2. Add dotenv (reading configuration from .env file) and nodemon - watcher
 ``` bash
 $ npm i dotenv
-$ npm i nodemon --save-dev
+$ npm i -D nodemon 
 ```
 3. Modify package.json add scripts 
  ```

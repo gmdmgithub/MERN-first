@@ -1,9 +1,10 @@
 {
   "name": "to-do-mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple MERN app with books",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.13"
@@ -14,9 +15,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start-watch": "nodemon index.js"
+    "serv": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mongodb",
+    "express",
+    "react js",
+    "node.js"
+  ],
+  "author": "Greg",
   "license": "MIT"
 }
