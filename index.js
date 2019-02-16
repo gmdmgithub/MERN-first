@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const routes = require('./routes/api');
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use((req, res, next) => {
   app.use((req, res, next) => {
     res.send('Express is serving content');
   });
+
+  app.use('/api', routes);
 
   app.listen(port, () => {
     console.log(`Server running on port ${port} ...`);

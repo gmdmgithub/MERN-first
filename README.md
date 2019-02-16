@@ -7,9 +7,10 @@ Implementation simple project with Mongodb, express, react and node.js
 $ npm init
 $ npm i express 
 ```
-2. Add dotenv (reading configuration from .env file) and nodemon
+2. Add dotenv (reading configuration from .env file) and nodemon - watcher
 ``` bash
-$ npm i dotenv nodemon
+$ npm i dotenv
+$ npm i nodemon --save-dev
 ```
 3. Modify package.json add scripts 
  ```
