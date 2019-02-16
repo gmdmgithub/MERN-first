@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const Book = require('./models/book');
 
 router.get('/books', (req, res, next) => {
     console.log('Getting the books list');
 
-    next();
+    Book.find({})
+    .then(data => res.json(data))
+    .catch(next);
 });
 router.get('/books/:id', (req, res, next) => {
     console.log('Get the book');
@@ -18,7 +21,9 @@ router.post('/books', (req, res, next) => {
 router.delete('/books/:id', (req, res, next) => {
     console.log('delete a book');
 
-    next();
+    Book.findOneAndDelete({"_id": req.params.id})
+    .then(data => res.json(data))
+    .catch(next)
 
 })
 
