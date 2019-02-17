@@ -1,19 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/book');
-const mongoose = require('mongoose');
-
-
-mongoose.connect('mongodb://localhost:27017/library', {
-    useNewUrlParser: true
-});
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-    console.log('connected to the database ...');
-
-});
 
 router.get('/books', (req, res, next) => {
     console.log('Getting the books list');
