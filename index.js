@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 require('./util/mongo');
-const routes = require('./routes/api');
+const bookRouter = require('./routes/book_api');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -18,14 +18,15 @@ app.use((req, res, next) => {
     next();
   });
 
+app.use(bodyParser.json());
 
-  app.use('/api', routes); 
-  
-  app.use((req, res, next) => {
-    res.json({
-      message: "Go to /api/book ... to start"
-    })
-  });
+app.use('/api/books', bookRouter); 
+
+app.use((req, res, next) => {
+  res.json({
+    message: "Go to /api/book ... to start"
+  })
+});
 
   
 
