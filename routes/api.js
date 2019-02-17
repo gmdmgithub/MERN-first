@@ -6,6 +6,7 @@ router.get('/books', (req, res, next) => {
     console.log('Getting the books list');
 
     Book.find({})
+        .sort({ crateDate: -1 })
         .then(data => {
             console.log('taking data from db');
             res.json(data)
