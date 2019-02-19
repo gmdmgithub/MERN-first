@@ -17,6 +17,19 @@ $ npm i -D nodemon
  ```
  "start": "nodemon index.js"
 ```
+4. Add a react app (client)
+ ``` bush
+ $ npx create-react-app client
+```
+5. Add concurrently to run cople comand in one line: https://www.npmjs.com/package/concurrently
+ ``` bush
+ $ npm i -D concurrently
+```
+6. Modufy the package.json file add line similar to that
+ ```
+ "dev" : "concurrently \"nodemon index.js\" \"cd client && npm run start\""
+```
+
 
 ## Version
 
