@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
     Book.find({})
         .sort({ crateDate: -1 })
         .then(data => {
-            console.log('taking data from db');
+            console.log('taking data from db %s', JSON.stringify(data,null,2));
             res.json(data)
         })
         .catch(next);
@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
     //         lastname: 'Conner'
     //     }
     // })
+    console.log('POST IS WORKING body: %s', req.body.title);
+    
 
     const book = new Book({
         title: req.body.title,

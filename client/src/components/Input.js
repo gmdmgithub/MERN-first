@@ -3,16 +3,32 @@ import axios from 'axios';
 
 class Input extends Component {
   state = {
-    action: ""
+    title:        "",
+    ISBN:         "",
+    description:  ""
   }
   addBook = () => {
-    const task = {action: this.state.action}
-    if(task.action && task.action.length > 0){
-      axios.post('/api/books', task)
+    const book = {
+      title: this.state.title,
+      ISBN: this.state.ISBN,
+      description: this.state.description,
+      author:{
+        firstname: 'Jon',
+        lastname: 'Doe'
+    }
+
+    }
+    if(book.title && book.title.length > 0){
+      axios.post('/api/books', book)
         .then(res => {
           if(res.data){
+           
             this.props.getBooks();
-            this.setState({action: ""})
+            this.setState({  
+              title:        "",
+              ISBN:         "",
+              description:  ""
+            })
           }
         })
         .catch(err => console.log(err))
@@ -21,15 +37,42 @@ class Input extends Component {
     }
   }
   handleChange = (e) => {
-    this.setState({
-      action: e.target.value
-    })
+    
+    switch (e.target.name) {
+      case "title":
+        this.setState({title:e.target.value})
+        break;
+      case "ISBN":
+        this.setState({ISBN:e.target.value})
+        break;
+      case "description":
+        this.setState({description:e.target.value});
+        break;
+      default: 
+        console.log('Chcange s%',e.target.value );
+        break;
+    }
+    
   }
   render() {
-    let { action } = this.state;
+    let { title } = this.state.title;
+    let{ ISBN} = this.state.ISBN ;
+    let { description} = this.state.description;
     return (
       <div>
-        <input type="text" onChange={this.handleChange} value={action} />
+        <div>
+          <label htmlFor="title">Book title</label><br></br>
+          <input type="text" name="title" 
+            onChange={this.handleChange} value={title} />
+        </div>
+        <div>    
+          <label htmlFor="ISBN">ISBN</label><br></br>
+          <input type="text" name="ISBN" onChange={this.handleChange} value={ISBN} />
+          </div>
+        <div>
+          <label htmlFor="description">Book description</label><br></br>
+          <input type="text" name="description" onChange={this.handleChange} value={description} />
+        </div>
         <button onClick={this.addBook}>Add book</button>
       </div>
     )

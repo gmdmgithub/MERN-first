@@ -14,13 +14,15 @@ class Book extends Component {
       .then(res => {
         if(res.data){
           this.setState({
-            todbooksos: res.data
+            books: res.data
           })
         }
       })
       .catch(err => console.log(err))
   }
   deleteBook = (id) => {
+    console.log("Delete book action");
+    
     axios.delete(`/api/books/${id}`)
       .then(res => {
         if(res.data){
