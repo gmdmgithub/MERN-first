@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
     Book.find({})
         .sort({ crateDate: -1 })
         .then(data => {
-            console.log('taking data from db %s', JSON.stringify(data,null,2));
+            //console.log('taking data from db %s', JSON.stringify(data,null,2));
             res.json(data)
         })
         .catch(next);

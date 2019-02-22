@@ -55,23 +55,20 @@ class Input extends Component {
     
   }
   render() {
-    let { title } = this.state.title;
-    let{ ISBN} = this.state.ISBN ;
-    let { description} = this.state.description;
     return (
       <div>
         <div>
           <label htmlFor="title">Book title</label><br></br>
           <input type="text" name="title" 
-            onChange={this.handleChange} value={title} />
+            onChange={this.handleChange} value={this.state.title} />
         </div>
         <div>    
           <label htmlFor="ISBN">ISBN</label><br></br>
-          <input type="text" name="ISBN" onChange={this.handleChange} value={ISBN} />
+          <input type="text" name="ISBN" onChange={this.handleChange} value={this.state.ISBN} />
           </div>
         <div>
           <label htmlFor="description">Book description</label><br></br>
-          <input type="text" name="description" onChange={this.handleChange} value={description} />
+          <input type="text" name="description" onChange={this.handleChange} value={this.state.description} />
         </div>
         <button onClick={this.addBook}>Add book</button>
       </div>
