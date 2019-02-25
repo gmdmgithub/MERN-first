@@ -29,6 +29,18 @@ $ npm i -D nodemon
  ```
  "dev" : "concurrently \"nodemon index.js\" \"cd client && npm run start\""
 ```
+7. In the client package.json add line
+```
+"proxy": "http://localhost:<BACKEND_PORT>"
+```
+8. For the client folder install react router (remember to run it in subfoder client)
+``` bush
+ $ npm i react-router-dom
+```
+Fo the App.js file add line:
+```
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+```
 
 
 ## Version
