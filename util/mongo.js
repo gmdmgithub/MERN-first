@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-require('dotenv').config()
 
-//db uri could be change ie https://mlab.com/ - highly recomended 
+require('dotenv').config()//load data from .env file (available as process.env.XXXXXX - where XXX variable)
+
+//db uri could be change ie https://mlab.com/ - highly recommended 
 
 
 //connection with Promise and arrow func

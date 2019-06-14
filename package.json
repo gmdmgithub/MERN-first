@@ -1,19 +1,19 @@
 {
   "name": "to-do-mern",
   "version": "1.0.0",
-  "description": "Simple MERN app with books",
+  "description": "Simple MERN library app - playground",
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.13",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.15",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
