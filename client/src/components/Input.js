@@ -49,7 +49,7 @@ class Input extends Component {
         this.setState({description:e.target.value});
         break;
       default: 
-        console.log('Chcange s%',e.target.value );
+        console.log('Changed s%',e.target.value );
         break;
     }
     

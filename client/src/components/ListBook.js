@@ -8,7 +8,7 @@ const ListBook = ({ books, deleteBook }) => {
             (
                 books.map(book => {
                 return (
-                  <li key={book._id} onClick={() => deleteBook(book._id)}>{book.title}{book.tittle}</li>
+                  <li key={book._id}>{book.title}{book.tittle} <button className="btn-delete" onClick={() => deleteBook(book._id)}>Delete book</button></li>
                 )
               })
             )
