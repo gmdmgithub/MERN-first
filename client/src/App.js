@@ -10,12 +10,15 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <Link to="/"> Home page</Link>
-        <Link to="/user/login"> Go to login page </Link>
-        <Link to="/user/logout"> Go to logout page </Link>
-        <Link to="/user/register"> Register user </Link>
-        <h2>MERN-Stack Book App</h2>
-
+        <div className="menu">
+          <Link to="/"> Home page</Link>
+          <Link to="/user/login"> Go to login page </Link>
+          <Link to="/user/logout"> Go to logout page </Link>
+          <Link to="/user/register"> Register user </Link>
+          </div>
+          
+          <h2>MERN-Stack Book App</h2>
+        
         <Route path="/" exact component={Book} />
         <Route path="/user/login" component={UserLogin} />
         <Route path="/user/logout" component={UserLogout} />
