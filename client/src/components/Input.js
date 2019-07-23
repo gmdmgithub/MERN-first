@@ -13,7 +13,7 @@ class Input extends Component {
       ISBN: this.state.ISBN,
       description: this.state.description,
       author:{
-        firstname: 'Jon',
+        firstname: 'John',
         lastname: 'Doe'
     }
 
