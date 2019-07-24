@@ -23,7 +23,10 @@ router.get('/', (req, res, next) => {
 // @access  Public
 router.get('/:id', (req, res, next) => {
     console.log('Get the book');
-    next();
+    Book.findById({ "_id": req.params.id})
+    .then(book => {res.json(book)})
+    .catch(e=>res.status(404).json({ error:e, success: false }))
+    // next();
 });
 
 // @route   POST api/books
@@ -71,12 +74,12 @@ router.delete('/:id', (req, res, next) => {
         .catch(err => res.status(404).json({ success: false }));
 
     // alternative way - first find
-    Book.findById(req.params.id)
-    .then(book => book.remove().then(() => res.json({ success: true })))
-    .catch(err => {
-        console.log(err);
-        res.status(404).json({ success: false })
-    });
+    // Book.findById(req.params.id)
+    // .then(book => book.remove().then(() => res.json({ success: true })))
+    // .catch(err => {
+    //     console.log(err);
+    //     res.status(404).json({ success: false })
+    // });
 
 })
 
