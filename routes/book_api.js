@@ -46,6 +46,7 @@ router.post('/', (req, res, next) => {
     // })
     console.log('POST IS WORKING body: %s', req.body.title);
     
+    console.log('POST IS WORKING body is: %s', JSON.stringify(req.body));
 
     const book = new Book({
         title: req.body.title,
@@ -85,9 +86,14 @@ router.delete('/:id', (req, res, next) => {
 
 
 router.put('/:id', (req, res, next) => {
-    console.log('update a book');
+    console.log('update a book', req.body.title);
+    // next();
 
-    next();
+    Book.updateOne({"_id":req.params.id}, {$set: {title: req.body.title}})
+        .then(() => res.json({ success: true }))
+        .catch(err => res.status(404).json({error:err, success: false }));
+
+    
 
 })
 

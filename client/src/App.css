@@ -33,6 +33,11 @@ button {
   width: 150px;
   background: #e64b1c;
 }
+.btn-update{
+  
+  width: 120px;
+  background: blue;
+}
 button:focus {
   outline: none;
 }
@@ -52,7 +57,7 @@ li {
   border-radius: 5px;
   overflow-wrap: break-word;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   /* cursor: pointer; */
 }
