@@ -7,6 +7,23 @@ class Input extends Component {
     ISBN:         "",
     description:  ""
   }
+  
+  componentDidMount(){
+    console.log("Mount input");
+  }
+  
+  parentBook = (book) => {
+    console.log("GetBook input", book);
+    
+    if(book !== null && book !== undefined){
+      this.setState({
+        title:        book.title,
+        ISBN:         book.ISBN,
+        description:  book.description
+      })
+    }
+  }
+
   addBook = () => {
     const book = {
       title: this.state.title,
@@ -19,23 +36,35 @@ class Input extends Component {
 
     }
     if(book.title && book.title.length > 0){
-      axios.post('/api/books', book)
-        .then(res => {
-          if(res.data){
-           
-            this.props.getBooks();
-            this.setState({  
-              title:        "",
-              ISBN:         "",
-              description:  ""
-            })
-          }
+      if(this.props.getBook() !== null){
+        axios.put(`/api/books/${ this.props.getBook()._id}`,book)
+        .then(res =>{
+          console.log(res);
+          this.props.getBooks();
         })
-        .catch(err => console.log(err))
+        .catch(e => console.log(e));
+      }
+      else{//add state
+        axios.post('/api/books', book)
+          .then(res => {
+            if(res.data){
+            
+              this.props.getBooks();
+              this.setState({  
+                title:        "",
+                ISBN:         "",
+                description:  ""
+              })
+            }
+          })
+          .catch(err => console.log(err))
+      }
     }else {
       console.log('input field required')
     }
   }
+
+
   handleChange = (e) => {
     
     switch (e.target.name) {
