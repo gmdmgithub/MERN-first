@@ -5,7 +5,9 @@ class Input extends Component {
   state = {
     title:        "",
     ISBN:         "",
-    description:  ""
+    description:  "",
+    editState:  false,
+    id: null
   }
   
   componentDidMount(){
@@ -19,7 +21,9 @@ class Input extends Component {
       this.setState({
         title:        book.title,
         ISBN:         book.ISBN,
-        description:  book.description
+        description:  book.description,
+        editState: true,
+        id: book._id
       })
     }
   }
@@ -36,11 +40,14 @@ class Input extends Component {
 
     }
     if(book.title && book.title.length > 0){
-      if(this.props.getBook() !== null){
-        axios.put(`/api/books/${ this.props.getBook()._id}`,book)
+      console.log("so create or update?",this.state);
+      
+      if(this.state.editState  && this.state.id !== null){
+        axios.put(`/api/books/${this.state.id}`,book)
         .then(res =>{
           console.log(res);
           this.props.getBooks();
+          this.resetForm()
         })
         .catch(e => console.log(e));
       }
@@ -48,13 +55,8 @@ class Input extends Component {
         axios.post('/api/books', book)
           .then(res => {
             if(res.data){
-            
               this.props.getBooks();
-              this.setState({  
-                title:        "",
-                ISBN:         "",
-                description:  ""
-              })
+              this.resetForm()
             }
           })
           .catch(err => console.log(err))
@@ -64,6 +66,15 @@ class Input extends Component {
     }
   }
 
+  resetForm = () =>{
+    this.setState({  
+      title:        "",
+      ISBN:         "",
+      description:  "",
+      editState: false,
+      id: null
+    })
+  }
 
   handleChange = (e) => {
     

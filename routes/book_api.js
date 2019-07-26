@@ -89,7 +89,13 @@ router.put('/:id', (req, res, next) => {
     console.log('update a book', req.body.title);
     // next();
 
-    Book.updateOne({"_id":req.params.id}, {$set: {title: req.body.title}})
+    Book.updateOne({"_id":req.params.id}, 
+        {$set: {
+            title: req.body.title,
+            ISBN: req.body.ISBN,
+            description: req.body.description
+            }
+        })
         .then(() => res.json({ success: true }))
         .catch(err => res.status(404).json({error:err, success: false }));
 
