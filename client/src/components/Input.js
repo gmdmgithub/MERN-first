@@ -76,6 +76,13 @@ class Input extends Component {
     })
   }
 
+  getButtonValue =()=>{
+    return this.state.editState?"Update book":"Add book";
+  }
+  cancelButton = () =>{
+    return this.state.editState?<button className="cancel-button" onClick={this.resetForm}>Cancel update</button>:"";
+  }
+
   handleChange = (e) => {
     
     switch (e.target.name) {
@@ -110,7 +117,9 @@ class Input extends Component {
           <label htmlFor="description">Book description</label><br></br>
           <input type="text" name="description" onChange={this.handleChange} value={this.state.description} />
         </div>
-        <button onClick={this.addBook}>Add book</button>
+        <button className="add-button" onClick={this.addBook}>{this.getButtonValue()}</button>
+        {this.cancelButton()}
+
       </div>
     )
   }

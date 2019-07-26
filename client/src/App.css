@@ -29,6 +29,9 @@ button {
   color: #dadee9;
   cursor: pointer;
 }
+.cancel-button{
+  background: #5f4203;
+}
 .btn-delete{
   width: 150px;
   background: #e64b1c;
@@ -116,7 +119,7 @@ a{
     width: 70%;
   }
   button {
-    width: 50%;
+    width: 30%;
     margin-left: 10px;
     margin-top: 10px;
     font-size: 1rem;
