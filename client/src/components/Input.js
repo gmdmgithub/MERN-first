@@ -80,7 +80,7 @@ class Input extends Component {
     return this.state.editState?"Update book":"Add book";
   }
   cancelButton = () =>{
-    return this.state.editState?<button className="cancel-button" onClick={this.resetForm}>Cancel update</button>:"";
+    return this.state.editState?<button className="btn-cancel" onClick={this.resetForm}>Cancel update</button>:"";
   }
 
   handleChange = (e) => {

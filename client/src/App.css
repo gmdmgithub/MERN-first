@@ -29,11 +29,11 @@ button {
   color: #dadee9;
   cursor: pointer;
 }
-.cancel-button{
+.btn-cancel{
   background: #5f4203;
 }
 .btn-delete{
-  width: 150px;
+  width: 120px;
   background: #e64b1c;
 }
 .btn-update{
@@ -60,7 +60,7 @@ li {
   border-radius: 5px;
   overflow-wrap: break-word;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   /* cursor: pointer; */
 }
