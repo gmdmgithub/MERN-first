@@ -47,6 +47,7 @@ class Book extends Component {
     const book =  this.state.books.filter(b => b._id ===id)
     if(book.length > 0 ){
       this.childInput.current.parentBook(book[0]);
+      document.getElementById("my-books").scrollIntoView();
     }
   }
 
@@ -54,7 +55,7 @@ class Book extends Component {
     let { books} = this.state;
     return(
       <div>
-        <h1>My Book(s)</h1>
+        <h1 id="my-books">My Book(s)</h1>
         <Input getBooks={this.getBooks} ref={this.childInput} />
         <ListBook books={books} deleteBook={this.deleteBook} editBook={this.editBook}/>
       </div>

@@ -105,17 +105,14 @@ class Input extends Component {
     return (
       <div>
         <div>
-          <label htmlFor="title">Book title</label><br></br>
-          <input type="text" name="title" 
+          <input type="text" name="title" placeholder="Book title"
             onChange={this.handleChange} value={this.state.title} />
         </div>
         <div>    
-          <label htmlFor="ISBN">ISBN</label><br></br>
-          <input type="text" name="ISBN" onChange={this.handleChange} value={this.state.ISBN} />
+          <input type="text" name="ISBN" placeholder="ISBN" onChange={this.handleChange} value={this.state.ISBN} />
           </div>
         <div>
-          <label htmlFor="description">Book description</label><br></br>
-          <input type="text" name="description" onChange={this.handleChange} value={this.state.description} />
+          <input type="text" name="description" placeholder="Book description" onChange={this.handleChange} value={this.state.description} />
         </div>
         <button className="add-button" onClick={this.addBook}>{this.getButtonValue()}</button>
         {this.cancelButton()}

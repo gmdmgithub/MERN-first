@@ -8,11 +8,16 @@
 input {
   height: 40px;
   width: 50%;
+  margin: 20px 0;
   border: none;
   border-bottom: 2px #101113 solid;
   background: none;
   font-size: 1.5rem;
-  color: #787a80;
+  color: #333436;
+}
+
+::placeholder {
+  opacity: 0.5;
 }
 
 input:focus {
@@ -69,7 +74,8 @@ li:last-child{
 }
 a{
   text-decoration: none;
-  margin-left: 20px;
+  color: aliceblue;
+  font-weight: 300;
   
 }
 @media only screen and (min-width: 300px) {
@@ -77,9 +83,9 @@ a{
     width: 80%;
     font-size: calc(8px + 2vmin);
   }
-  .menu>a{
+  .menu > a {
     display: block;
-    padding: 0.2rem;
+    padding: 10px;
     border: #3d3f3d 1px solid;
     background-color: #787a80;
   }
@@ -113,7 +119,7 @@ a{
   .menu>a{
     border: #3d3f3d 1px;
     min-width: 150px;
-    padding: 0.2rem;
+    padding: 10px;
   }
   input {
     width: 70%;
