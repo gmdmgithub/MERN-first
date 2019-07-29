@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Input extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     title:        "",
     ISBN:         "",
@@ -77,10 +82,10 @@ class Input extends Component {
   }
 
   getButtonValue =()=>{
-    return this.state.editState?"Update book":"Add book";
+    return this.state.editState ? "Update book":"Add book";
   }
   cancelButton = () =>{
-    return this.state.editState?<button className="btn-cancel" onClick={this.resetForm}>Cancel update</button>:"";
+    return this.state.editState ? <button className="btn-cancel" onClick={this.resetForm}>Cancel update</button>:"";
   }
 
   handleChange = (e) => {

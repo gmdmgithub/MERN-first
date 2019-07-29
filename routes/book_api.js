@@ -23,9 +23,9 @@ router.get('/', (req, res, next) => {
 // @access  Public
 router.get('/:id', (req, res, next) => {
     console.log('Get the book');
-    Book.findById({ "_id": req.params.id})
-    .then(book => {res.json(book)})
-    .catch(e=>res.status(404).json({ error:e, success: false }))
+    Book.findById({ "_id": req.params.id })
+        .then(book => { res.json(book) })
+        .catch(e => res.status(404).json({ error: e, success: false }))
     // next();
 });
 
@@ -44,8 +44,8 @@ router.post('/', (req, res, next) => {
     //         lastname: 'Conner'
     //     }
     // })
-    console.log('POST IS WORKING body: %s', req.body.title);
-    
+    // console.log('POST IS WORKING body: %s', req.body.title);
+
     console.log('POST IS WORKING body is: %s', JSON.stringify(req.body));
 
     const book = new Book({
@@ -56,21 +56,21 @@ router.post('/', (req, res, next) => {
             firstname: req.body.author.firstname,
             lastname: req.body.author.lastname
         }
-    }) 
-
-    console.log('Create a book');
+    })
 
     book.save(book)
-    .then(data => res.json(data))
-    .catch(err => console.log(err))
-    
+        .then(data => res.json(data))
+        .catch(err => console.log(err))
 });
 
-
+// @route   DELETE api/books/:id
+// @desc    Delete a book of id
+// @access  Public
 router.delete('/:id', (req, res, next) => {
-    console.log('delete a book');
+   
+    console.log('delete a book',req.params.id);
 
-    Book.findOneAndDelete({ "_id": req.params.id})
+    Book.findOneAndDelete({ "_id": req.params.id })
         .then(() => res.json({ success: true }))
         .catch(err => res.status(404).json({ success: false }));
 
@@ -81,26 +81,25 @@ router.delete('/:id', (req, res, next) => {
     //     console.log(err);
     //     res.status(404).json({ success: false })
     // });
-
 })
 
-
+// @route   PUT api/books/:id
+// @desc    Update a book of id
+// @access  Public
 router.put('/:id', (req, res, next) => {
-    console.log('update a book', req.body.title);
+    console.log('update a book', req.params.id);
     // next();
 
-    Book.updateOne({"_id":req.params.id}, 
-        {$set: {
-            title: req.body.title,
-            ISBN: req.body.ISBN,
-            description: req.body.description
+    Book.updateOne({ "_id": req.params.id },
+        {
+            $set: {
+                title: req.body.title,
+                ISBN: req.body.ISBN,
+                description: req.body.description
             }
         })
         .then(() => res.json({ success: true }))
-        .catch(err => res.status(404).json({error:err, success: false }));
-
-    
-
+        .catch(err => res.status(404).json({ error: err, success: false }));
 })
 
 module.exports = router;
