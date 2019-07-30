@@ -19,7 +19,7 @@ class Input extends Component {
     console.log("Mount input");
   }
   
-  parentBook = (book) => {
+  editedBook = (book) => {
     console.log("GetBook input", book);
     
     if(book !== null && book !== undefined){

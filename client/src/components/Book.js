@@ -46,7 +46,7 @@ class Book extends Component {
     // console.log(`Edit book ID: ${id}`);
     const book =  this.state.books.filter(b => b._id ===id)
     if(book.length > 0 ){
-      this.childInput.current.parentBook(book[0]);
+      this.childInput.current.editedBook(book[0]);
       document.getElementById("my-books").scrollIntoView();
     }
   }
