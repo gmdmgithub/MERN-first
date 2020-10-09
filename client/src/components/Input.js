@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const CHANGE_HANDLER = {
+  TITLE: 'title',
+  DESCRIPTION: 'description',
+  ISBN: 'ISBN'
+};
+
 class Input extends Component {
 
   constructor(props) {
@@ -91,13 +97,13 @@ class Input extends Component {
   handleChange = (e) => {
     
     switch (e.target.name) {
-      case "title":
+      case CHANGE_HANDLER.TITLE:
         this.setState({title:e.target.value})
         break;
-      case "ISBN":
+      case CHANGE_HANDLER.ISBN:
         this.setState({ISBN:e.target.value})
         break;
-      case "description":
+      case CHANGE_HANDLER.DESCRIPTION:
         this.setState({description:e.target.value});
         break;
       default: 
